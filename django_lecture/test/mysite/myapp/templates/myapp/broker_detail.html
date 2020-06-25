@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    {% ifequal test.user.username user.username %}
+            {% if test.is_broker %}
+                <h3>First name : {{test.user.first_name}}</h3>
+                <h3>Last name : {{test.user.last_name}}</h3>
+                <h3>Username : {{test.user.username}}</h3>
+                <h3>Email : {{test.user.email}}</h3>
+                <h3>phone number : {{test.phone_number}}</h3>
+                <h3>type : {{test.type}}</h3>
+            {% endif %}
+            <button type="button"><a href="{% url 'broker_update' pk=test.pk %}">Update</a></button>
+
+    {% else %}
+    <h2>Sorry, you are not authorized to continue your query</h2>
+    <h2>Brokers with only their estates can update their objects</h2>
+    <button type="button"><a href="{% url 'estate_detail' pk=estate.pk %}">Continue</a></button>
+    {% endifequal %}
+
+    
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fari maal</title>
+</head>
+<body>
+    <h1>This is self explanatory project for understanding of django models</h1>
+    <div>
+        {% if users_data %}
+            <ol>
+            {% for e in users_data%}
+            <li>User Info</li>
+                <ul type='circle '>
+                    <li>First Name : {{e.first_name}}</li>
+                    <li>Last Name : {{e.last_name}}</li>
+                    <li>Email : {{e.email}}</li>
+                </ul>
+            {% endfor %} 
+            </ol>
+        {% else %}
+        <p>NO DATA AVAILABLE</p>
+        {% endif %}
+    </div>
+</body>
+</html>
